@@ -2,6 +2,19 @@ from generated.tis100Visitor import tis100Visitor
 from generated.tis100Parser import tis100Parser
 
 
+def can_parse_to_int(node):
+    constant = node.getText().strip("\n")
+    try:
+        int(constant)
+        return True
+    except ValueError:
+        return False
+
+
+def parse_to_int(node):
+    return int(node.getText().strip("\n"))
+
+
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
@@ -53,7 +66,7 @@ class CodeGenerator(tis100Visitor):
         print("Visit add instruction")
         src = ctx.operand().accept(self)
         dst = self.registers["ACC"]
-        add_instruction = "   ADD " + str(dst) + ", " + str(src)
+        add_instruction = "   ADD " + str(dst) + ", " + str(dst) + ", " + str(src)
         print(add_instruction)
         self.append_instruction(add_instruction)
         return
@@ -61,7 +74,7 @@ class CodeGenerator(tis100Visitor):
     def visitSubInstruction(self, ctx: tis100Parser.SubInstructionContext):
         src = ctx.operand().accept(self)
         dst = self.registers["ACC"]
-        sub_instruction = "   SUB " + str(dst) + ", " + str(src)
+        sub_instruction = "   SUB " + str(dst) + ", " + str(dst) + ", " + str(src)
         print(sub_instruction)
         self.append_instruction(sub_instruction)
         self.visitOperand(ctx.operand())
@@ -123,4 +136,11 @@ class CodeGenerator(tis100Visitor):
         return self.registers["ACC"]
 
     def visitTerminal(self, node):
-        return "#" + node.getText()
+        if can_parse_to_int(node):
+            constant = parse_to_int(node)
+            if constant > 999:
+                return "#999"
+            elif constant < -999:
+                return "#-999"
+            else:
+                return "#" + str(constant)
