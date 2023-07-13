@@ -6,6 +6,9 @@ from code_generation.Register import Register
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
+        self.registers = [Register("ACC", 0), Register("NIL", 10),
+                          Register("UP", 0), Register("DOWN", 1),
+                          Register("DAT", 2)]
 
     def generate_code(self, ast):
         self.visitProgram(ast)
@@ -99,4 +102,6 @@ class CodeGenerator(tis100Visitor):
         return ctx.getChild(0).accept(self)
 
     def visitAccumulatorOperand(self, ctx: tis100Parser.AccumulatorOperandContext):
-        return Register(3)
+        return self.registers
+
+
