@@ -4,8 +4,10 @@ from generated.tis100Parser import tis100Parser
 
 class PrettyPrinter(tis100Visitor):
     def visitProgram(self, ctx: tis100Parser.ProgramContext):
+        print("Program")
         for line in ctx.line():
             self.visitLine(line)
+        print("End Program\n")
         return
 
     def visitLine(self, ctx: tis100Parser.LineContext):
