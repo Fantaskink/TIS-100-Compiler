@@ -79,19 +79,19 @@ grammar tis100;
         ;
 
     operand
-        :   accumulatorOperand | upOperand | downOperand | dataOperand | Identifier | Constant
+        :   accumulatorOperand | inOperand | outOperand | dataOperand | Identifier | Constant
         ;
 
     accumulatorOperand
         :   'ACC'
         ;
 
-    upOperand
-        :   'UP'
+    inOperand
+        :   'IN'
         ;
 
-    downOperand
-        :   'DOWN'
+    outOperand
+        :   'OUT'
         ;
 
     dataOperand
