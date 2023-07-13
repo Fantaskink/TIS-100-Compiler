@@ -1,6 +1,7 @@
 import sys
 from antlr4 import *
 from pretty_printer.pretty_printer import PrettyPrinter
+from code_generation.code_generator import CodeGenerator
 from generated.tis100Lexer import tis100Lexer
 from generated.tis100Parser import tis100Parser
 
@@ -21,3 +22,6 @@ if __name__ == '__main__':
     ast = parser.program()
     pretty_printer = PrettyPrinter()
     pretty_printer.visitProgram(ast)
+
+    code_generator = CodeGenerator()
+    code_generator.generate_code(ast)

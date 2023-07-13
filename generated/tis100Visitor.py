@@ -99,5 +99,25 @@ class tis100Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by tis100Parser#accumulatorOperand.
+    def visitAccumulatorOperand(self, ctx:tis100Parser.AccumulatorOperandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tis100Parser#upOperand.
+    def visitUpOperand(self, ctx:tis100Parser.UpOperandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tis100Parser#downOperand.
+    def visitDownOperand(self, ctx:tis100Parser.DownOperandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tis100Parser#dataOperand.
+    def visitDataOperand(self, ctx:tis100Parser.DataOperandContext):
+        return self.visitChildren(ctx)
+
+
 
 del tis100Parser

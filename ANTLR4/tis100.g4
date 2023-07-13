@@ -79,7 +79,23 @@ grammar tis100;
         ;
 
     operand
-        :   'ACC' | 'UP' | 'LEFT' | 'DOWN' | 'RIGHT' | 'DAT' | Constant
+        :   accumulatorOperand | upOperand | downOperand | dataOperand | Identifier | Constant
+        ;
+
+    accumulatorOperand
+        :   'ACC'
+        ;
+
+    upOperand
+        :   'UP'
+        ;
+
+    downOperand
+        :   'DOWN'
+        ;
+
+    dataOperand
+        :   'DAT'
         ;
 
     Constant

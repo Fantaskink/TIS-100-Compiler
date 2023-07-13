@@ -1,8 +1,25 @@
 from generated.tis100Visitor import tis100Visitor
 from generated.tis100Parser import tis100Parser
+from code_generation.Register import Register
 
 
 class CodeGenerator(tis100Visitor):
+    def __init__(self):
+        self.code_lines = []
+
+    def generate_code(self, ast):
+        self.visitProgram(ast)
+        self.write_code_to_file("output/program.s")
+        return
+
+    def add_instruction(self, instruction):
+        self.code_lines.append(instruction)
+
+    def write_code_to_file(self, filename):
+        with open(filename, 'w') as f:
+            for line in self.code_lines:
+                f.write(line + "\n")
+
     def visitProgram(self, ctx: tis100Parser.ProgramContext):
         for line in ctx.line():
             self.visitLine(line)
@@ -38,9 +55,7 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitMoveInstruction(self, ctx: tis100Parser.MoveInstructionContext):
-        # Generate code for MOV instruction
-        self.visitOperand(ctx.operand(0))
-        self.visitOperand(ctx.operand(1))
+        self.add_instruction("MOV " + str(ctx.operand(0).accept(self)) + ", " + str(ctx.operand(1).accept(self)))
         return
 
     def visitConditional(self, ctx: tis100Parser.ConditionalContext):
@@ -80,5 +95,8 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitOperand(self, ctx: tis100Parser.OperandContext):
-        print(ctx.getText())
-        return
+        print(ctx.getChild(0).accept(self))
+        return ctx.getChild(0).accept(self)
+
+    def visitAccumulatorOperand(self, ctx: tis100Parser.AccumulatorOperandContext):
+        return Register(3)

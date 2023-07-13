@@ -11,6 +11,7 @@
           <option name="encoding" value="" />
           <option name="pkg" value="" />
           <option name="language" value="Python3" />
+          <option name="generateListener" value="false" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
       </list>
