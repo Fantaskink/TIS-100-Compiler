@@ -2,7 +2,7 @@ from generated.tis100Visitor import tis100Visitor
 from generated.tis100Parser import tis100Parser
 
 
-class PrettyPrinter(tis100Visitor):
+class CodeGenerator(tis100Visitor):
     def visitProgram(self, ctx: tis100Parser.ProgramContext):
         for line in ctx.line():
             self.visitLine(line)
@@ -13,11 +13,11 @@ class PrettyPrinter(tis100Visitor):
         return
 
     def visitBreakpoint(self, ctx: tis100Parser.BreakpointContext):
-        print("Breakpoint ", end="")
+        # Generate code for breakpoint
         return
 
     def visitLabel(self, ctx: tis100Parser.LabelContext):
-        print("Label: " + str(ctx.Identifier()))
+        # Generate code for label
         if ctx.instruction() is not None:
             print("   ", end="")
             self.visitInstruction(ctx.instruction())
@@ -28,22 +28,18 @@ class PrettyPrinter(tis100Visitor):
         return
 
     def visitAddInstruction(self, ctx: tis100Parser.AddInstructionContext):
-        print("ADD Instruction")
-        print("   Operand: ", end="")
+        # Generate code for ADD instruction
         self.visitOperand(ctx.operand())
         return
 
     def visitSubInstruction(self, ctx: tis100Parser.SubInstructionContext):
-        print("SUB Instruction")
-        print("   Operand: ", end="")
+        # Generate code for SUB instruction
         self.visitOperand(ctx.operand())
         return
 
     def visitMoveInstruction(self, ctx: tis100Parser.MoveInstructionContext):
-        print("MOV Instruction")
-        print("   SRC: ", end="")
+        # Generate code for MOV instruction
         self.visitOperand(ctx.operand(0))
-        print("   DST: ", end="")
         self.visitOperand(ctx.operand(1))
         return
 
@@ -52,18 +48,15 @@ class PrettyPrinter(tis100Visitor):
         return
 
     def visitEqualsCondition(self, ctx: tis100Parser.EqualsConditionContext):
-        print("JEZ Conditional")
-        print("   Label: " + ctx.Identifier().getText())
+        # Generate code for JEZ conditional
         return
 
     def visitGreaterCondition(self, ctx: tis100Parser.GreaterConditionContext):
-        print("JGZ Conditional")
-        print("   Label: " + ctx.Identifier().getText())
+        # Generate code for JGZ conditional
         return
 
     def visitLessCondition(self, ctx: tis100Parser.LessConditionContext):
-        print("JLZ Conditional")
-        print("   Label: " + ctx.Identifier().getText())
+        # Generate code for JLZ conditional
         return
 
     def visitMemoryInstruction(self, ctx: tis100Parser.MemoryInstructionContext):
@@ -71,20 +64,19 @@ class PrettyPrinter(tis100Visitor):
         return
 
     def visitJumpInstruction(self, ctx: tis100Parser.JumpInstructionContext):
-        print("JMP Instruction")
-        print("   Label: " + ctx.Identifier().getText())
+        # Generate code for JMP instruction
         return
 
     def visitSaveInstruction(self, ctx: tis100Parser.SaveInstructionContext):
-        print("SAV Instruction")
+        # Generate code for SAV instruction
         return
 
     def visitSwapInstruction(self, ctx: tis100Parser.SwapInstructionContext):
-        print("SWP Instruction")
+        # Generate code for SWP instruction
         return
 
     def visitNoOperation(self, ctx: tis100Parser.NoOperationContext):
-        print("NOP Instruction")
+        # Generate code for NOP instruction
         return
 
     def visitOperand(self, ctx: tis100Parser.OperandContext):
