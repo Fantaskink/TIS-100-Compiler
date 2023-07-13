@@ -51,7 +51,6 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitLabel(self, ctx: tis100Parser.LabelContext):
-        print("Visit label")
         self.append_instruction(str(ctx.Identifier()) + ":")
         if ctx.instruction() is not None:
             print("   ", end="")
@@ -63,7 +62,6 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitAddInstruction(self, ctx: tis100Parser.AddInstructionContext):
-        print("Visit add instruction")
         src = ctx.operand().accept(self)
         dst = self.registers["ACC"]
         add_instruction = "   ADD " + str(dst) + ", " + str(dst) + ", " + str(src)
@@ -81,7 +79,6 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitMoveInstruction(self, ctx: tis100Parser.MoveInstructionContext):
-        print("Visit move instruction")
         src = ctx.operand(0).accept(self)
         dst = ctx.operand(1).accept(self)
         move_instruction = "   MOV " + str(dst) + ", " + str(src)
@@ -93,7 +90,6 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitEqualsCondition(self, ctx: tis100Parser.EqualsConditionContext):
-        print("Visit equals condition")
         acc = self.registers["ACC"]
         equals_instruction = "   CMP " + str(acc) + ", #0"
         self.append_instruction(equals_instruction)
