@@ -37,7 +37,7 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitLabel(self, ctx: tis100Parser.LabelContext):
-        # Generate code for label
+        self.add_instruction(str(ctx.Identifier()) + ":")
         if ctx.instruction() is not None:
             print("   ", end="")
             self.visitInstruction(ctx.instruction())
