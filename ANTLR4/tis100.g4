@@ -99,7 +99,7 @@ grammar tis100;
         ;
 
     Constant
-        :   Digit+
+        :   ('-')? Digit+
         ;
 
     Identifier
