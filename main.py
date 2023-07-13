@@ -12,8 +12,13 @@ def get_code():
         return loaded_code
 
 
+def convert_to_uppercase(code):
+    return code.upper()
+
+
 if __name__ == '__main__':
     code = get_code()
+    code = convert_to_uppercase(code)
     input_stream = InputStream(code)
     lexer = tis100Lexer(input_stream)
     token_stream = CommonTokenStream(lexer)
