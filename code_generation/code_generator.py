@@ -1,21 +1,22 @@
 from generated.tis100Visitor import tis100Visitor
 from generated.tis100Parser import tis100Parser
-from code_generation.Register import Register
 
 
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = [Register("ACC", 0), Register("NIL", 10),
-                          Register("UP", 0), Register("DOWN", 1),
-                          Register("DAT", 2)]
+        self.registers = {'ACC': 'X0', 'NIL': 'X10', 'UP': 'X0', 'DOWN': 'X1', 'DAT': 'X2'}
 
     def generate_code(self, ast):
+        self.code_lines.append(".global _main\n.align 3\n\n_main:")
+
         self.visitProgram(ast)
+
+        self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80")
         self.write_code_to_file("output/program.s")
         return
 
-    def add_instruction(self, instruction):
+    def append_instruction(self, instruction):
         self.code_lines.append(instruction)
 
     def write_code_to_file(self, filename):
@@ -37,7 +38,8 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitLabel(self, ctx: tis100Parser.LabelContext):
-        self.add_instruction(str(ctx.Identifier()) + ":")
+        print("Visit label")
+        self.append_instruction(str(ctx.Identifier()) + ":")
         if ctx.instruction() is not None:
             print("   ", end="")
             self.visitInstruction(ctx.instruction())
@@ -48,17 +50,29 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitAddInstruction(self, ctx: tis100Parser.AddInstructionContext):
-        # Generate code for ADD instruction
-        self.visitOperand(ctx.operand())
+        print("Visit add instruction")
+        src = ctx.operand().accept(self)
+        dst = self.registers["ACC"]
+        add_instruction = "   ADD " + str(dst) + ", " + str(src)
+        print(add_instruction)
+        self.append_instruction(add_instruction)
         return
 
     def visitSubInstruction(self, ctx: tis100Parser.SubInstructionContext):
-        # Generate code for SUB instruction
+        src = ctx.operand().accept(self)
+        dst = self.registers["ACC"]
+        sub_instruction = "   SUB " + str(dst) + ", " + str(src)
+        print(sub_instruction)
+        self.append_instruction(sub_instruction)
         self.visitOperand(ctx.operand())
         return
 
     def visitMoveInstruction(self, ctx: tis100Parser.MoveInstructionContext):
-        self.add_instruction("MOV " + str(ctx.operand(0).accept(self)) + ", " + str(ctx.operand(1).accept(self)))
+        print("Visit move instruction")
+        src = ctx.operand(0).accept(self)
+        dst = ctx.operand(1).accept(self)
+        move_instruction = "   MOV " + str(dst) + ", " + str(src)
+        self.append_instruction(move_instruction)
         return
 
     def visitConditional(self, ctx: tis100Parser.ConditionalContext):
@@ -66,7 +80,12 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitEqualsCondition(self, ctx: tis100Parser.EqualsConditionContext):
-        # Generate code for JEZ conditional
+        print("Visit equals condition")
+        acc = self.registers["ACC"]
+        equals_instruction = "   CMP " + str(acc) + ", #0"
+        self.append_instruction(equals_instruction)
+        branch_instruction = "   B.EQ " + str(ctx.Identifier())
+        self.append_instruction(branch_instruction)
         return
 
     def visitGreaterCondition(self, ctx: tis100Parser.GreaterConditionContext):
@@ -98,10 +117,10 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitOperand(self, ctx: tis100Parser.OperandContext):
-        print(ctx.getChild(0).accept(self))
         return ctx.getChild(0).accept(self)
 
     def visitAccumulatorOperand(self, ctx: tis100Parser.AccumulatorOperandContext):
-        return self.registers
+        return self.registers["ACC"]
 
-
+    def visitTerminal(self, node):
+        return "#" + node.getText()
