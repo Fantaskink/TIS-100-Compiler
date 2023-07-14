@@ -28,7 +28,7 @@ def get_negate_instruction(register):
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4'}
+        self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4', 'BAK': 'X11'}
 
     def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
@@ -136,7 +136,10 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitSaveInstruction(self, ctx: tis100Parser.SaveInstructionContext):
-        # Generate code for SAV instruction
+        acc = self.registers["ACC"]
+        bak = self.registers["BAK"]
+        save_instruction = "   MOV " + str(bak) + ", " + str(acc)
+        self.append_instruction(save_instruction + "\n")
         return
 
     def visitSwapInstruction(self, ctx: tis100Parser.SwapInstructionContext):
@@ -152,6 +155,15 @@ class CodeGenerator(tis100Visitor):
 
     def visitAccumulatorOperand(self, ctx: tis100Parser.AccumulatorOperandContext):
         return self.registers["ACC"]
+
+    def visitInOperand(self, ctx:tis100Parser.InOperandContext):
+        return self.registers["IN"]
+
+    def visitOutOperand(self, ctx:tis100Parser.OutOperandContext):
+        return self.registers["OUT"]
+
+    def visitDataOperand(self, ctx:tis100Parser.DataOperandContext):
+        return self.registers["DAT"]
 
     def visitTerminal(self, node):
         if not can_parse_to_int(node):
