@@ -1,7 +1,6 @@
-import sys
 from antlr4 import *
-from pretty_printer.pretty_printer import PrettyPrinter
-from code_generation.code_generator import CodeGenerator
+from pretty_printer import PrettyPrinter
+from code_generator import CodeGenerator
 from generated.tis100Lexer import tis100Lexer
 from generated.tis100Parser import tis100Parser
 
