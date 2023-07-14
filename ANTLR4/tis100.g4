@@ -5,8 +5,7 @@ grammar tis100;
         ;
 
     line
-        :   breakpoint? (label
-        |   instruction | Newline)
+        :   breakpoint? (label | instruction | Newline)
         ;
 
     breakpoint
