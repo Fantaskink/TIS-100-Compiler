@@ -7,7 +7,7 @@ from generated.tis100Parser import tis100Parser
 
 
 def get_code():
-    with open('code/program.txt') as f:
+    with open('input/program.txt') as f:
         loaded_code = f.read()
         return loaded_code
 
