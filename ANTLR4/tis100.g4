@@ -79,7 +79,7 @@ grammar tis100;
         ;
 
     operand
-        :   accumulatorOperand | inOperand | outOperand | dataOperand | Identifier | Constant
+        :   accumulatorOperand | inOperand | outOperand | dataOperand | Constant
         ;
 
     accumulatorOperand
