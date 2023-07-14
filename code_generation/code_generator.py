@@ -30,12 +30,18 @@ class CodeGenerator(tis100Visitor):
         self.code_lines = []
         self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4'}
 
-    def generate_code(self, ast):
+    def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
+
+    def write_outro_boilerplate(self):
+        self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80")
+
+    def generate_code(self, ast):
+        self.write_intro_boilerplate()
 
         self.visitProgram(ast)
 
-        self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80")
+        self.write_outro_boilerplate()
         self.write_code_to_file("output/program.s")
         return
 
