@@ -3,22 +3,32 @@ from generated.tis100Parser import tis100Parser
 
 
 def can_parse_to_int(node):
-    constant = node.getText().strip("\n")
-    try:
-        int(constant)
-        return True
-    except ValueError:
-        return False
+    import re
+    string = node.getText().strip("\n").strip("-")
+    pattern = r'^\d+$'
+    return bool(re.match(pattern, string))
 
 
 def parse_to_int(node):
-    return int(node.getText().strip("\n"))
+    return int(node.getText().strip("\n").strip("-"))
+
+
+def get_is_negative(node):
+    return node.getText().strip("\n").startswith("-")
+
+
+def get_load_register_instruction(value, register):
+    return "   MOV " + register + ", #" + str(value)
+
+
+def get_negate_instruction(register):
+    return "   NEG " + register + ", " + register
 
 
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = {'ACC': 'X0', 'NIL': 'X10', 'UP': 'X0', 'DOWN': 'X1', 'DAT': 'X2'}
+        self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4'}
 
     def generate_code(self, ast):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
@@ -132,11 +142,27 @@ class CodeGenerator(tis100Visitor):
         return self.registers["ACC"]
 
     def visitTerminal(self, node):
-        if can_parse_to_int(node):
-            constant = parse_to_int(node)
-            if constant > 999:
-                return "#999"
-            elif constant < -999:
-                return "#-999"
-            else:
-                return "#" + str(constant)
+        if not can_parse_to_int(node):
+            return
+
+        is_negative = get_is_negative(node)
+
+        parsed_constant = parse_to_int(node)
+
+        print("Parsed constant: " + str(parsed_constant))
+
+        # If the constant is over 999, set it to 999
+        if len(str(parsed_constant)) > 3:
+            parsed_constant = 999
+
+        register = "X0"
+
+        instruction = get_load_register_instruction(parsed_constant, register)
+        self.append_instruction(instruction)
+
+        if is_negative:
+            instruction = get_negate_instruction(register)
+            self.append_instruction(instruction)
+
+        return register
+
