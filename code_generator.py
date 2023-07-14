@@ -59,7 +59,12 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitLine(self, ctx: tis100Parser.LineContext):
-        return ctx.getChild(0).accept(self)
+        if ctx.breakpoint() is not None:
+            self.visitBreakpoint(ctx.breakpoint())
+            return ctx.getChild(1).accept(self)
+        else:
+            return ctx.getChild(0).accept(self)
+
 
     def visitBreakpoint(self, ctx: tis100Parser.BreakpointContext):
         # Generate code for breakpoint
