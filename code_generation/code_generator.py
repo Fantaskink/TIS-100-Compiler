@@ -63,7 +63,6 @@ class CodeGenerator(tis100Visitor):
     def visitLabel(self, ctx: tis100Parser.LabelContext):
         self.append_instruction(str(ctx.Identifier()) + ":")
         if ctx.instruction() is not None:
-            print("   ", end="")
             self.visitInstruction(ctx.instruction())
         return
 
@@ -75,16 +74,14 @@ class CodeGenerator(tis100Visitor):
         src = ctx.operand().accept(self)
         dst = self.registers["ACC"]
         add_instruction = "   ADD " + str(dst) + ", " + str(dst) + ", " + str(src)
-        print(add_instruction)
-        self.append_instruction(add_instruction)
+        self.append_instruction(add_instruction + "\n")
         return
 
     def visitSubInstruction(self, ctx: tis100Parser.SubInstructionContext):
         src = ctx.operand().accept(self)
         dst = self.registers["ACC"]
         sub_instruction = "   SUB " + str(dst) + ", " + str(dst) + ", " + str(src)
-        print(sub_instruction)
-        self.append_instruction(sub_instruction)
+        self.append_instruction(sub_instruction + "\n")
         self.visitOperand(ctx.operand())
         return
 
@@ -92,7 +89,7 @@ class CodeGenerator(tis100Visitor):
         src = ctx.operand(0).accept(self)
         dst = ctx.operand(1).accept(self)
         move_instruction = "   MOV " + str(dst) + ", " + str(src)
-        self.append_instruction(move_instruction)
+        self.append_instruction(move_instruction + "\n")
         return
 
     def visitConditional(self, ctx: tis100Parser.ConditionalContext):
@@ -101,18 +98,26 @@ class CodeGenerator(tis100Visitor):
 
     def visitEqualsCondition(self, ctx: tis100Parser.EqualsConditionContext):
         acc = self.registers["ACC"]
-        equals_instruction = "   CMP " + str(acc) + ", #0"
-        self.append_instruction(equals_instruction)
+        compare_instruction = "   CMP " + str(acc) + ", #0"
+        self.append_instruction(compare_instruction)
         branch_instruction = "   B.EQ " + str(ctx.Identifier())
-        self.append_instruction(branch_instruction)
+        self.append_instruction(branch_instruction + "\n")
         return
 
     def visitGreaterCondition(self, ctx: tis100Parser.GreaterConditionContext):
-        # Generate code for JGZ conditional
+        acc = self.registers["ACC"]
+        compare_instruction = "   CMP " + str(acc) + ", #0"
+        self.append_instruction(compare_instruction)
+        branch_instruction = "   B.GT " + str(ctx.Identifier())
+        self.append_instruction(branch_instruction + "\n")
         return
 
     def visitLessCondition(self, ctx: tis100Parser.LessConditionContext):
-        # Generate code for JLZ conditional
+        acc = self.registers["ACC"]
+        compare_instruction = "   CMP " + str(acc) + ", #0"
+        self.append_instruction(compare_instruction)
+        branch_instruction = "   B.LT " + str(ctx.Identifier())
+        self.append_instruction(branch_instruction + "\n")
         return
 
     def visitMemoryInstruction(self, ctx: tis100Parser.MemoryInstructionContext):
@@ -120,7 +125,8 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitJumpInstruction(self, ctx: tis100Parser.JumpInstructionContext):
-        # Generate code for JMP instruction
+        jump_instruction = "   B " + str(ctx.Identifier())
+        self.append_instruction(jump_instruction)
         return
 
     def visitSaveInstruction(self, ctx: tis100Parser.SaveInstructionContext):
@@ -148,8 +154,6 @@ class CodeGenerator(tis100Visitor):
         is_negative = get_is_negative(node)
 
         parsed_constant = parse_to_int(node)
-
-        print("Parsed constant: " + str(parsed_constant))
 
         # If the constant is over 999, set it to 999
         if len(str(parsed_constant)) > 3:
