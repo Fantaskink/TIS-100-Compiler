@@ -69,7 +69,7 @@ class PrettyPrinter(tis100Visitor):
         return
 
     def visitMemoryInstruction(self, ctx: tis100Parser.MemoryInstructionContext):
-        ctx.getChild(0).accept()
+        ctx.getChild(0).accept(self)
         return
 
     def visitJumpInstruction(self, ctx: tis100Parser.JumpInstructionContext):

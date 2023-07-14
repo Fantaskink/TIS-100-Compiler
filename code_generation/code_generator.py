@@ -28,7 +28,7 @@ def get_negate_instruction(register):
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4', 'BAK': 'X11'}
+        self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4', 'BAK': 'X11', 'TEMP': 'X0'}
 
     def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
@@ -59,8 +59,7 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitLine(self, ctx: tis100Parser.LineContext):
-        ctx.getChild(0).accept(self)
-        return
+        return ctx.getChild(0).accept(self)
 
     def visitBreakpoint(self, ctx: tis100Parser.BreakpointContext):
         # Generate code for breakpoint
@@ -73,8 +72,7 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitInstruction(self, ctx: tis100Parser.InstructionContext):
-        ctx.getChild(0).accept(self)
-        return
+        return ctx.getChild(0).accept(self)
 
     def visitAddInstruction(self, ctx: tis100Parser.AddInstructionContext):
         src = ctx.operand().accept(self)
@@ -99,8 +97,7 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitConditional(self, ctx: tis100Parser.ConditionalContext):
-        ctx.getChild(0).accept(self)
-        return
+        return ctx.getChild(0).accept(self)
 
     def visitEqualsCondition(self, ctx: tis100Parser.EqualsConditionContext):
         acc = self.registers["ACC"]
@@ -126,9 +123,16 @@ class CodeGenerator(tis100Visitor):
         self.append_instruction(branch_instruction + "\n")
         return
 
-    def visitMemoryInstruction(self, ctx: tis100Parser.MemoryInstructionContext):
-        ctx.getChild(0).accept()
+    def visitNotEqualsCondition(self, ctx: tis100Parser.NotEqualsConditionContext):
+        acc = self.registers["ACC"]
+        compare_instruction = "   CMP " + str(acc) + ", #0"
+        self.append_instruction(compare_instruction)
+        branch_instruction = "   B.NE " + str(ctx.Identifier())
+        self.append_instruction(branch_instruction + "\n")
         return
+
+    def visitMemoryInstruction(self, ctx: tis100Parser.MemoryInstructionContext):
+        return ctx.getChild(0).accept(self)
 
     def visitJumpInstruction(self, ctx: tis100Parser.JumpInstructionContext):
         jump_instruction = "   B " + str(ctx.Identifier())
@@ -143,7 +147,15 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitSwapInstruction(self, ctx: tis100Parser.SwapInstructionContext):
-        # Generate code for SWP instruction
+        acc = self.registers["ACC"]
+        bak = self.registers["BAK"]
+        intermediate = self.registers["TEMP"]
+        swap_instruction = "   MOV " + str(intermediate) + ", " + str(acc)
+        self.append_instruction(swap_instruction)
+        swap_instruction = "   MOV " + str(acc) + ", " + str(bak)
+        self.append_instruction(swap_instruction)
+        swap_instruction = "   MOV " + str(bak) + ", " + str(intermediate)
+        self.append_instruction(swap_instruction + "\n")
         return
 
     def visitNoOperation(self, ctx: tis100Parser.NoOperationContext):
@@ -156,13 +168,13 @@ class CodeGenerator(tis100Visitor):
     def visitAccumulatorOperand(self, ctx: tis100Parser.AccumulatorOperandContext):
         return self.registers["ACC"]
 
-    def visitInOperand(self, ctx:tis100Parser.InOperandContext):
+    def visitInOperand(self, ctx: tis100Parser.InOperandContext):
         return self.registers["IN"]
 
-    def visitOutOperand(self, ctx:tis100Parser.OutOperandContext):
+    def visitOutOperand(self, ctx: tis100Parser.OutOperandContext):
         return self.registers["OUT"]
 
-    def visitDataOperand(self, ctx:tis100Parser.DataOperandContext):
+    def visitDataOperand(self, ctx: tis100Parser.DataOperandContext):
         return self.registers["DAT"]
 
     def visitTerminal(self, node):
@@ -177,7 +189,7 @@ class CodeGenerator(tis100Visitor):
         if len(str(parsed_constant)) > 3:
             parsed_constant = 999
 
-        register = "X0"
+        register = self.registers["TEMP"]
 
         instruction = get_load_register_instruction(parsed_constant, register)
         self.append_instruction(instruction)
@@ -187,4 +199,3 @@ class CodeGenerator(tis100Visitor):
             self.append_instruction(instruction)
 
         return register
-

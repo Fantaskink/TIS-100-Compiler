@@ -43,6 +43,7 @@ grammar tis100;
         :   equalsCondition
         |   greaterCondition
         |   lessCondition
+        |   notEqualsCondition
         ;
 
     equalsCondition
@@ -55,6 +56,10 @@ grammar tis100;
 
     lessCondition
         :   'JLZ' (Identifier | Constant )
+        ;
+
+    notEqualsCondition
+        :   'JNZ' (Identifier | Constant )
         ;
 
     memoryInstruction
