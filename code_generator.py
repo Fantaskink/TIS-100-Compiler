@@ -34,6 +34,7 @@ class CodeGenerator(tis100Visitor):
     def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
         self.code_lines.append("   MOV " + self.registers["ACC"] + ", #0")
+        self.code_lines.append("   MOV " + self.registers["BAK"] + ", #0")
 
     def write_outro_boilerplate(self):
         self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80\n")
