@@ -28,7 +28,8 @@ def get_negate_instruction(register):
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = {'ACC': 'X20', 'NIL': 'X31', 'IN': 'X21', 'OUT': 'X22', 'DAT': 'X23', 'BAK': 'X24', 'TEMP': 'X25'}
+        self.registers = {'ACC': 'X20', 'NIL': 'X31', 'IN': 'X21', 'OUT': 'X22',
+                          'DAT': 'X23', 'BAK': 'X24', 'TEMP': 'X25'}
 
     def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
