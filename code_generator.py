@@ -28,10 +28,11 @@ def get_negate_instruction(register):
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = {'ACC': 'X1', 'NIL': 'X31', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4', 'BAK': 'X11', 'TEMP': 'X0'}
+        self.registers = {'ACC': 'X20', 'NIL': 'X31', 'IN': 'X21', 'OUT': 'X22', 'DAT': 'X23', 'BAK': 'X24', 'TEMP': 'X25'}
 
     def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
+        self.code_lines.append("   MOV " + self.registers["ACC"] + ", #0")
 
     def write_outro_boilerplate(self):
         self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80\n")
@@ -104,6 +105,7 @@ class CodeGenerator(tis100Visitor):
 
     def append_printf_instruction(self, src):
         self.code_lines.append("   // Setup for printf")
+        self.code_lines.append("   MOV X0, " + src)
         self.code_lines.append("   ADRP X0, ptfStr@PAGE")
         self.code_lines.append("   ADD X0, X0, ptfStr@PAGEOFF")
         self.code_lines.append("   MOV X10, " + str(src))
