@@ -28,13 +28,14 @@ def get_negate_instruction(register):
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
-        self.registers = {'ACC': 'X1', 'NIL': 'X10', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4', 'BAK': 'X11', 'TEMP': 'X0'}
+        self.registers = {'ACC': 'X1', 'NIL': 'X31', 'IN': 'X2', 'OUT': 'X3', 'DAT': 'X4', 'BAK': 'X11', 'TEMP': 'X0'}
 
     def write_intro_boilerplate(self):
         self.code_lines.append(".global _main\n.align 3\n\n_main:")
 
     def write_outro_boilerplate(self):
-        self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80")
+        self.code_lines.append("MOV X0, #0\nMOV X16, #1\nSVC #0x80\n")
+        self.code_lines.append(".data\nptfStr: .asciz \"%ld\\n\"\n.align 4\n.text")
 
     def generate_code(self, ast):
         self.write_intro_boilerplate()
@@ -65,7 +66,6 @@ class CodeGenerator(tis100Visitor):
         else:
             return ctx.getChild(0).accept(self)
 
-
     def visitBreakpoint(self, ctx: tis100Parser.BreakpointContext):
         # Generate code for breakpoint
         return
@@ -91,7 +91,6 @@ class CodeGenerator(tis100Visitor):
         dst = self.registers["ACC"]
         sub_instruction = "   SUB " + str(dst) + ", " + str(dst) + ", " + str(src)
         self.append_instruction(sub_instruction + "\n")
-        self.visitOperand(ctx.operand())
         return
 
     def visitMoveInstruction(self, ctx: tis100Parser.MoveInstructionContext):
@@ -99,7 +98,18 @@ class CodeGenerator(tis100Visitor):
         dst = ctx.operand(1).accept(self)
         move_instruction = "   MOV " + str(dst) + ", " + str(src)
         self.append_instruction(move_instruction + "\n")
+        if dst == self.registers["OUT"]:
+            self.append_printf_instruction(dst)
         return
+
+    def append_printf_instruction(self, src):
+        self.code_lines.append("   // Setup for printf")
+        self.code_lines.append("   ADRP X0, ptfStr@PAGE")
+        self.code_lines.append("   ADD X0, X0, ptfStr@PAGEOFF")
+        self.code_lines.append("   MOV X10, " + str(src))
+        self.code_lines.append("   STR X10, [SP, #-16]!")
+        self.code_lines.append("   BL _printf\n")
+        self.code_lines.append("   ADD SP, SP, #16\n")
 
     def visitConditional(self, ctx: tis100Parser.ConditionalContext):
         return ctx.getChild(0).accept(self)
@@ -182,6 +192,9 @@ class CodeGenerator(tis100Visitor):
     def visitDataOperand(self, ctx: tis100Parser.DataOperandContext):
         return self.registers["DAT"]
 
+    def visitNilOperand(self, ctx: tis100Parser.NilOperandContext):
+        return self.registers["NIL"]
+
     def visitTerminal(self, node):
         if not can_parse_to_int(node):
             return
@@ -194,13 +207,12 @@ class CodeGenerator(tis100Visitor):
         if len(str(parsed_constant)) > 3:
             parsed_constant = 999
 
-        register = self.registers["TEMP"]
-
-        instruction = get_load_register_instruction(parsed_constant, register)
-        self.append_instruction(instruction)
-
         if is_negative:
-            instruction = get_negate_instruction(register)
-            self.append_instruction(instruction)
+            register = self.registers["TEMP"]
+            load_instruction = get_load_register_instruction(parsed_constant, register)
+            self.append_instruction(load_instruction)
+            neg_instruction = get_negate_instruction(register)
+            self.append_instruction(neg_instruction)
+            return register
 
-        return register
+        return parsed_constant
