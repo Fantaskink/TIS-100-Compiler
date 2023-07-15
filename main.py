@@ -11,8 +11,8 @@ def get_code():
         return loaded_code
 
 
-def convert_to_uppercase(code):
-    return code.upper()
+def convert_to_uppercase(code_text):
+    return code_text.upper()
 
 
 if __name__ == '__main__':
