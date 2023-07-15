@@ -10,47 +10,51 @@ else:
 
 def serializedATN():
     return [
-        4,1,22,131,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        4,1,24,142,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
-        7,20,2,21,7,21,1,0,5,0,46,8,0,10,0,12,0,49,9,0,1,0,1,0,1,1,3,1,54,
-        8,1,1,1,1,1,1,1,3,1,59,8,1,1,2,1,2,1,3,1,3,1,3,3,3,66,8,3,1,4,1,
-        4,1,4,1,4,1,4,1,4,1,4,3,4,75,8,4,1,5,1,5,1,5,1,6,1,6,1,6,1,7,1,7,
-        1,7,1,7,1,7,1,8,1,8,1,8,3,8,91,8,8,1,9,1,9,1,9,1,10,1,10,1,10,1,
-        11,1,11,1,11,1,12,1,12,3,12,104,8,12,1,13,1,13,1,13,1,14,1,14,1,
-        15,1,15,1,16,1,16,1,17,1,17,1,17,1,17,1,17,1,17,3,17,121,8,17,1,
-        18,1,18,1,19,1,19,1,20,1,20,1,21,1,21,1,21,0,0,22,0,2,4,6,8,10,12,
-        14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,0,1,1,0,18,19,127,0,
-        47,1,0,0,0,2,53,1,0,0,0,4,60,1,0,0,0,6,62,1,0,0,0,8,74,1,0,0,0,10,
-        76,1,0,0,0,12,79,1,0,0,0,14,82,1,0,0,0,16,90,1,0,0,0,18,92,1,0,0,
-        0,20,95,1,0,0,0,22,98,1,0,0,0,24,103,1,0,0,0,26,105,1,0,0,0,28,108,
-        1,0,0,0,30,110,1,0,0,0,32,112,1,0,0,0,34,120,1,0,0,0,36,122,1,0,
-        0,0,38,124,1,0,0,0,40,126,1,0,0,0,42,128,1,0,0,0,44,46,3,2,1,0,45,
-        44,1,0,0,0,46,49,1,0,0,0,47,45,1,0,0,0,47,48,1,0,0,0,48,50,1,0,0,
-        0,49,47,1,0,0,0,50,51,5,0,0,1,51,1,1,0,0,0,52,54,3,4,2,0,53,52,1,
-        0,0,0,53,54,1,0,0,0,54,58,1,0,0,0,55,59,3,6,3,0,56,59,3,8,4,0,57,
-        59,5,22,0,0,58,55,1,0,0,0,58,56,1,0,0,0,58,57,1,0,0,0,59,3,1,0,0,
-        0,60,61,5,1,0,0,61,5,1,0,0,0,62,63,7,0,0,0,63,65,5,2,0,0,64,66,3,
-        8,4,0,65,64,1,0,0,0,65,66,1,0,0,0,66,7,1,0,0,0,67,75,3,10,5,0,68,
-        75,3,12,6,0,69,75,3,14,7,0,70,75,3,16,8,0,71,75,3,24,12,0,72,75,
-        3,26,13,0,73,75,3,32,16,0,74,67,1,0,0,0,74,68,1,0,0,0,74,69,1,0,
-        0,0,74,70,1,0,0,0,74,71,1,0,0,0,74,72,1,0,0,0,74,73,1,0,0,0,75,9,
-        1,0,0,0,76,77,5,3,0,0,77,78,3,34,17,0,78,11,1,0,0,0,79,80,5,4,0,
-        0,80,81,3,34,17,0,81,13,1,0,0,0,82,83,5,5,0,0,83,84,3,34,17,0,84,
-        85,5,6,0,0,85,86,3,34,17,0,86,15,1,0,0,0,87,91,3,18,9,0,88,91,3,
-        20,10,0,89,91,3,22,11,0,90,87,1,0,0,0,90,88,1,0,0,0,90,89,1,0,0,
-        0,91,17,1,0,0,0,92,93,5,7,0,0,93,94,7,0,0,0,94,19,1,0,0,0,95,96,
-        5,8,0,0,96,97,7,0,0,0,97,21,1,0,0,0,98,99,5,9,0,0,99,100,7,0,0,0,
-        100,23,1,0,0,0,101,104,3,28,14,0,102,104,3,30,15,0,103,101,1,0,0,
-        0,103,102,1,0,0,0,104,25,1,0,0,0,105,106,5,10,0,0,106,107,7,0,0,
-        0,107,27,1,0,0,0,108,109,5,11,0,0,109,29,1,0,0,0,110,111,5,12,0,
-        0,111,31,1,0,0,0,112,113,5,13,0,0,113,33,1,0,0,0,114,121,3,36,18,
-        0,115,121,3,38,19,0,116,121,3,40,20,0,117,121,3,42,21,0,118,121,
-        5,19,0,0,119,121,5,18,0,0,120,114,1,0,0,0,120,115,1,0,0,0,120,116,
-        1,0,0,0,120,117,1,0,0,0,120,118,1,0,0,0,120,119,1,0,0,0,121,35,1,
-        0,0,0,122,123,5,14,0,0,123,37,1,0,0,0,124,125,5,15,0,0,125,39,1,
-        0,0,0,126,127,5,16,0,0,127,41,1,0,0,0,128,129,5,17,0,0,129,43,1,
-        0,0,0,8,47,53,58,65,74,90,103,120
+        7,20,2,21,7,21,2,22,7,22,2,23,7,23,1,0,5,0,50,8,0,10,0,12,0,53,9,
+        0,1,0,1,0,1,1,3,1,58,8,1,1,1,1,1,1,1,3,1,63,8,1,1,2,1,2,1,3,1,3,
+        1,3,3,3,70,8,3,1,4,1,4,1,4,1,4,1,4,1,4,1,4,3,4,79,8,4,1,5,1,5,1,
+        5,1,6,1,6,1,6,1,7,1,7,1,7,1,7,1,7,1,8,1,8,1,8,1,8,3,8,96,8,8,1,9,
+        1,9,1,9,1,10,1,10,1,10,1,11,1,11,1,11,1,12,1,12,1,12,1,13,1,13,3,
+        13,112,8,13,1,14,1,14,1,14,1,15,1,15,1,16,1,16,1,17,1,17,1,18,1,
+        18,1,18,1,18,1,18,1,18,1,18,3,18,130,8,18,1,19,1,19,1,20,1,20,1,
+        21,1,21,1,22,1,22,1,23,1,23,1,23,0,0,24,0,2,4,6,8,10,12,14,16,18,
+        20,22,24,26,28,30,32,34,36,38,40,42,44,46,0,1,1,0,20,21,138,0,51,
+        1,0,0,0,2,57,1,0,0,0,4,64,1,0,0,0,6,66,1,0,0,0,8,78,1,0,0,0,10,80,
+        1,0,0,0,12,83,1,0,0,0,14,86,1,0,0,0,16,95,1,0,0,0,18,97,1,0,0,0,
+        20,100,1,0,0,0,22,103,1,0,0,0,24,106,1,0,0,0,26,111,1,0,0,0,28,113,
+        1,0,0,0,30,116,1,0,0,0,32,118,1,0,0,0,34,120,1,0,0,0,36,129,1,0,
+        0,0,38,131,1,0,0,0,40,133,1,0,0,0,42,135,1,0,0,0,44,137,1,0,0,0,
+        46,139,1,0,0,0,48,50,3,2,1,0,49,48,1,0,0,0,50,53,1,0,0,0,51,49,1,
+        0,0,0,51,52,1,0,0,0,52,54,1,0,0,0,53,51,1,0,0,0,54,55,5,0,0,1,55,
+        1,1,0,0,0,56,58,3,4,2,0,57,56,1,0,0,0,57,58,1,0,0,0,58,62,1,0,0,
+        0,59,63,3,6,3,0,60,63,3,8,4,0,61,63,5,24,0,0,62,59,1,0,0,0,62,60,
+        1,0,0,0,62,61,1,0,0,0,63,3,1,0,0,0,64,65,5,1,0,0,65,5,1,0,0,0,66,
+        67,7,0,0,0,67,69,5,2,0,0,68,70,3,8,4,0,69,68,1,0,0,0,69,70,1,0,0,
+        0,70,7,1,0,0,0,71,79,3,10,5,0,72,79,3,12,6,0,73,79,3,14,7,0,74,79,
+        3,16,8,0,75,79,3,26,13,0,76,79,3,28,14,0,77,79,3,34,17,0,78,71,1,
+        0,0,0,78,72,1,0,0,0,78,73,1,0,0,0,78,74,1,0,0,0,78,75,1,0,0,0,78,
+        76,1,0,0,0,78,77,1,0,0,0,79,9,1,0,0,0,80,81,5,3,0,0,81,82,3,36,18,
+        0,82,11,1,0,0,0,83,84,5,4,0,0,84,85,3,36,18,0,85,13,1,0,0,0,86,87,
+        5,5,0,0,87,88,3,36,18,0,88,89,5,6,0,0,89,90,3,36,18,0,90,15,1,0,
+        0,0,91,96,3,18,9,0,92,96,3,20,10,0,93,96,3,22,11,0,94,96,3,24,12,
+        0,95,91,1,0,0,0,95,92,1,0,0,0,95,93,1,0,0,0,95,94,1,0,0,0,96,17,
+        1,0,0,0,97,98,5,7,0,0,98,99,7,0,0,0,99,19,1,0,0,0,100,101,5,8,0,
+        0,101,102,7,0,0,0,102,21,1,0,0,0,103,104,5,9,0,0,104,105,7,0,0,0,
+        105,23,1,0,0,0,106,107,5,10,0,0,107,108,7,0,0,0,108,25,1,0,0,0,109,
+        112,3,30,15,0,110,112,3,32,16,0,111,109,1,0,0,0,111,110,1,0,0,0,
+        112,27,1,0,0,0,113,114,5,11,0,0,114,115,7,0,0,0,115,29,1,0,0,0,116,
+        117,5,12,0,0,117,31,1,0,0,0,118,119,5,13,0,0,119,33,1,0,0,0,120,
+        121,5,14,0,0,121,35,1,0,0,0,122,130,3,38,19,0,123,130,3,40,20,0,
+        124,130,3,42,21,0,125,130,3,44,22,0,126,130,1,0,0,0,127,130,3,46,
+        23,0,128,130,5,20,0,0,129,122,1,0,0,0,129,123,1,0,0,0,129,124,1,
+        0,0,0,129,125,1,0,0,0,129,126,1,0,0,0,129,127,1,0,0,0,129,128,1,
+        0,0,0,130,37,1,0,0,0,131,132,5,15,0,0,132,39,1,0,0,0,133,134,5,16,
+        0,0,134,41,1,0,0,0,135,136,5,17,0,0,136,43,1,0,0,0,137,138,5,18,
+        0,0,138,45,1,0,0,0,139,140,5,19,0,0,140,47,1,0,0,0,8,51,57,62,69,
+        78,95,111,129
     ]
 
 class tis100Parser ( Parser ):
@@ -64,15 +68,17 @@ class tis100Parser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "'!'", "':'", "'ADD'", "'SUB'", "'MOV'", 
-                     "','", "'JEZ'", "'JGZ'", "'JLZ'", "'JMP'", "'SAV'", 
-                     "'SWP'", "'NOP'", "'ACC'", "'UP'", "'DOWN'", "'DAT'" ]
+                     "','", "'JEZ'", "'JGZ'", "'JLZ'", "'JNZ'", "'JMP'", 
+                     "'SAV'", "'SWP'", "'NOP'", "'ACC'", "'IN'", "'OUT'", 
+                     "'DAT'", "'NIL'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "<INVALID>", "Constant", "Identifier", 
-                      "Comment", "Whitespace", "Newline" ]
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "Constant", "Identifier", "Comment", "Whitespace", 
+                      "Newline" ]
 
     RULE_program = 0
     RULE_line = 1
@@ -86,24 +92,26 @@ class tis100Parser ( Parser ):
     RULE_equalsCondition = 9
     RULE_greaterCondition = 10
     RULE_lessCondition = 11
-    RULE_memoryInstruction = 12
-    RULE_jumpInstruction = 13
-    RULE_saveInstruction = 14
-    RULE_swapInstruction = 15
-    RULE_noOperation = 16
-    RULE_operand = 17
-    RULE_accumulatorOperand = 18
-    RULE_upOperand = 19
-    RULE_downOperand = 20
-    RULE_dataOperand = 21
+    RULE_notEqualsCondition = 12
+    RULE_memoryInstruction = 13
+    RULE_jumpInstruction = 14
+    RULE_saveInstruction = 15
+    RULE_swapInstruction = 16
+    RULE_noOperation = 17
+    RULE_operand = 18
+    RULE_accumulatorOperand = 19
+    RULE_inOperand = 20
+    RULE_outOperand = 21
+    RULE_dataOperand = 22
+    RULE_nilOperand = 23
 
     ruleNames =  [ "program", "line", "breakpoint", "label", "instruction", 
                    "addInstruction", "subInstruction", "moveInstruction", 
                    "conditional", "equalsCondition", "greaterCondition", 
-                   "lessCondition", "memoryInstruction", "jumpInstruction", 
-                   "saveInstruction", "swapInstruction", "noOperation", 
-                   "operand", "accumulatorOperand", "upOperand", "downOperand", 
-                   "dataOperand" ]
+                   "lessCondition", "notEqualsCondition", "memoryInstruction", 
+                   "jumpInstruction", "saveInstruction", "swapInstruction", 
+                   "noOperation", "operand", "accumulatorOperand", "inOperand", 
+                   "outOperand", "dataOperand", "nilOperand" ]
 
     EOF = Token.EOF
     T__0=1
@@ -123,11 +131,13 @@ class tis100Parser ( Parser ):
     T__14=15
     T__15=16
     T__16=17
-    Constant=18
-    Identifier=19
-    Comment=20
-    Whitespace=21
-    Newline=22
+    T__17=18
+    T__18=19
+    Constant=20
+    Identifier=21
+    Comment=22
+    Whitespace=23
+    Newline=24
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -174,17 +184,17 @@ class tis100Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 47
+            self.state = 51
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 4997050) != 0):
-                self.state = 44
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 19955642) != 0):
+                self.state = 48
                 self.line()
-                self.state = 49
+                self.state = 53
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
-            self.state = 50
+            self.state = 54
             self.match(tis100Parser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -236,27 +246,27 @@ class tis100Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 53
+            self.state = 57
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             if _la==1:
-                self.state = 52
+                self.state = 56
                 self.breakpoint()
 
 
-            self.state = 58
+            self.state = 62
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [18, 19]:
-                self.state = 55
+            if token in [20, 21]:
+                self.state = 59
                 self.label()
                 pass
-            elif token in [3, 4, 5, 7, 8, 9, 10, 11, 12, 13]:
-                self.state = 56
+            elif token in [3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14]:
+                self.state = 60
                 self.instruction()
                 pass
-            elif token in [22]:
-                self.state = 57
+            elif token in [24]:
+                self.state = 61
                 self.match(tis100Parser.Newline)
                 pass
             else:
@@ -297,7 +307,7 @@ class tis100Parser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_breakpoint)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 60
+            self.state = 64
             self.match(tis100Parser.T__0)
         except RecognitionException as re:
             localctx.exception = re
@@ -344,20 +354,20 @@ class tis100Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 62
+            self.state = 66
             _la = self._input.LA(1)
-            if not(_la==18 or _la==19):
+            if not(_la==20 or _la==21):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
                 self.consume()
-            self.state = 63
+            self.state = 67
             self.match(tis100Parser.T__1)
-            self.state = 65
+            self.state = 69
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
             if la_ == 1:
-                self.state = 64
+                self.state = 68
                 self.instruction()
 
 
@@ -422,42 +432,42 @@ class tis100Parser ( Parser ):
         localctx = tis100Parser.InstructionContext(self, self._ctx, self.state)
         self.enterRule(localctx, 8, self.RULE_instruction)
         try:
-            self.state = 74
+            self.state = 78
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [3]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 67
+                self.state = 71
                 self.addInstruction()
                 pass
             elif token in [4]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 68
+                self.state = 72
                 self.subInstruction()
                 pass
             elif token in [5]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 69
+                self.state = 73
                 self.moveInstruction()
                 pass
-            elif token in [7, 8, 9]:
+            elif token in [7, 8, 9, 10]:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 70
+                self.state = 74
                 self.conditional()
                 pass
-            elif token in [11, 12]:
+            elif token in [12, 13]:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 71
+                self.state = 75
                 self.memoryInstruction()
                 pass
-            elif token in [10]:
+            elif token in [11]:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 72
+                self.state = 76
                 self.jumpInstruction()
                 pass
-            elif token in [13]:
+            elif token in [14]:
                 self.enterOuterAlt(localctx, 7)
-                self.state = 73
+                self.state = 77
                 self.noOperation()
                 pass
             else:
@@ -501,9 +511,9 @@ class tis100Parser ( Parser ):
         self.enterRule(localctx, 10, self.RULE_addInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 76
+            self.state = 80
             self.match(tis100Parser.T__2)
-            self.state = 77
+            self.state = 81
             self.operand()
         except RecognitionException as re:
             localctx.exception = re
@@ -543,9 +553,9 @@ class tis100Parser ( Parser ):
         self.enterRule(localctx, 12, self.RULE_subInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 79
+            self.state = 83
             self.match(tis100Parser.T__3)
-            self.state = 80
+            self.state = 84
             self.operand()
         except RecognitionException as re:
             localctx.exception = re
@@ -588,13 +598,13 @@ class tis100Parser ( Parser ):
         self.enterRule(localctx, 14, self.RULE_moveInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 82
+            self.state = 86
             self.match(tis100Parser.T__4)
-            self.state = 83
+            self.state = 87
             self.operand()
-            self.state = 84
+            self.state = 88
             self.match(tis100Parser.T__5)
-            self.state = 85
+            self.state = 89
             self.operand()
         except RecognitionException as re:
             localctx.exception = re
@@ -624,6 +634,10 @@ class tis100Parser ( Parser ):
             return self.getTypedRuleContext(tis100Parser.LessConditionContext,0)
 
 
+        def notEqualsCondition(self):
+            return self.getTypedRuleContext(tis100Parser.NotEqualsConditionContext,0)
+
+
         def getRuleIndex(self):
             return tis100Parser.RULE_conditional
 
@@ -641,23 +655,28 @@ class tis100Parser ( Parser ):
         localctx = tis100Parser.ConditionalContext(self, self._ctx, self.state)
         self.enterRule(localctx, 16, self.RULE_conditional)
         try:
-            self.state = 90
+            self.state = 95
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [7]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 87
+                self.state = 91
                 self.equalsCondition()
                 pass
             elif token in [8]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 88
+                self.state = 92
                 self.greaterCondition()
                 pass
             elif token in [9]:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 89
+                self.state = 93
                 self.lessCondition()
+                pass
+            elif token in [10]:
+                self.enterOuterAlt(localctx, 4)
+                self.state = 94
+                self.notEqualsCondition()
                 pass
             else:
                 raise NoViableAltException(self)
@@ -703,11 +722,11 @@ class tis100Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 92
+            self.state = 97
             self.match(tis100Parser.T__6)
-            self.state = 93
+            self.state = 98
             _la = self._input.LA(1)
-            if not(_la==18 or _la==19):
+            if not(_la==20 or _la==21):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -753,11 +772,11 @@ class tis100Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 95
+            self.state = 100
             self.match(tis100Parser.T__7)
-            self.state = 96
+            self.state = 101
             _la = self._input.LA(1)
-            if not(_la==18 or _la==19):
+            if not(_la==20 or _la==21):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -803,11 +822,61 @@ class tis100Parser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 98
+            self.state = 103
             self.match(tis100Parser.T__8)
-            self.state = 99
+            self.state = 104
             _la = self._input.LA(1)
-            if not(_la==18 or _la==19):
+            if not(_la==20 or _la==21):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class NotEqualsConditionContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def Identifier(self):
+            return self.getToken(tis100Parser.Identifier, 0)
+
+        def Constant(self):
+            return self.getToken(tis100Parser.Constant, 0)
+
+        def getRuleIndex(self):
+            return tis100Parser.RULE_notEqualsCondition
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitNotEqualsCondition" ):
+                return visitor.visitNotEqualsCondition(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def notEqualsCondition(self):
+
+        localctx = tis100Parser.NotEqualsConditionContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 24, self.RULE_notEqualsCondition)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 106
+            self.match(tis100Parser.T__9)
+            self.state = 107
+            _la = self._input.LA(1)
+            if not(_la==20 or _la==21):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -851,19 +920,19 @@ class tis100Parser ( Parser ):
     def memoryInstruction(self):
 
         localctx = tis100Parser.MemoryInstructionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 24, self.RULE_memoryInstruction)
+        self.enterRule(localctx, 26, self.RULE_memoryInstruction)
         try:
-            self.state = 103
+            self.state = 111
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [11]:
+            if token in [12]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 101
+                self.state = 109
                 self.saveInstruction()
                 pass
-            elif token in [12]:
+            elif token in [13]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 102
+                self.state = 110
                 self.swapInstruction()
                 pass
             else:
@@ -906,15 +975,15 @@ class tis100Parser ( Parser ):
     def jumpInstruction(self):
 
         localctx = tis100Parser.JumpInstructionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 26, self.RULE_jumpInstruction)
+        self.enterRule(localctx, 28, self.RULE_jumpInstruction)
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 105
-            self.match(tis100Parser.T__9)
-            self.state = 106
+            self.state = 113
+            self.match(tis100Parser.T__10)
+            self.state = 114
             _la = self._input.LA(1)
-            if not(_la==18 or _la==19):
+            if not(_la==20 or _la==21):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -951,11 +1020,11 @@ class tis100Parser ( Parser ):
     def saveInstruction(self):
 
         localctx = tis100Parser.SaveInstructionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 28, self.RULE_saveInstruction)
+        self.enterRule(localctx, 30, self.RULE_saveInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 108
-            self.match(tis100Parser.T__10)
+            self.state = 116
+            self.match(tis100Parser.T__11)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -988,11 +1057,11 @@ class tis100Parser ( Parser ):
     def swapInstruction(self):
 
         localctx = tis100Parser.SwapInstructionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 30, self.RULE_swapInstruction)
+        self.enterRule(localctx, 32, self.RULE_swapInstruction)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 110
-            self.match(tis100Parser.T__11)
+            self.state = 118
+            self.match(tis100Parser.T__12)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1025,11 +1094,11 @@ class tis100Parser ( Parser ):
     def noOperation(self):
 
         localctx = tis100Parser.NoOperationContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 32, self.RULE_noOperation)
+        self.enterRule(localctx, 34, self.RULE_noOperation)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 112
-            self.match(tis100Parser.T__12)
+            self.state = 120
+            self.match(tis100Parser.T__13)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1050,20 +1119,21 @@ class tis100Parser ( Parser ):
             return self.getTypedRuleContext(tis100Parser.AccumulatorOperandContext,0)
 
 
-        def upOperand(self):
-            return self.getTypedRuleContext(tis100Parser.UpOperandContext,0)
+        def inOperand(self):
+            return self.getTypedRuleContext(tis100Parser.InOperandContext,0)
 
 
-        def downOperand(self):
-            return self.getTypedRuleContext(tis100Parser.DownOperandContext,0)
+        def outOperand(self):
+            return self.getTypedRuleContext(tis100Parser.OutOperandContext,0)
 
 
         def dataOperand(self):
             return self.getTypedRuleContext(tis100Parser.DataOperandContext,0)
 
 
-        def Identifier(self):
-            return self.getToken(tis100Parser.Identifier, 0)
+        def nilOperand(self):
+            return self.getTypedRuleContext(tis100Parser.NilOperandContext,0)
+
 
         def Constant(self):
             return self.getToken(tis100Parser.Constant, 0)
@@ -1083,43 +1153,52 @@ class tis100Parser ( Parser ):
     def operand(self):
 
         localctx = tis100Parser.OperandContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 34, self.RULE_operand)
+        self.enterRule(localctx, 36, self.RULE_operand)
         try:
-            self.state = 120
+            self.state = 129
             self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [14]:
+            la_ = self._interp.adaptivePredict(self._input,7,self._ctx)
+            if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 114
+                self.state = 122
                 self.accumulatorOperand()
                 pass
-            elif token in [15]:
+
+            elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 115
-                self.upOperand()
+                self.state = 123
+                self.inOperand()
                 pass
-            elif token in [16]:
+
+            elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
-                self.state = 116
-                self.downOperand()
+                self.state = 124
+                self.outOperand()
                 pass
-            elif token in [17]:
+
+            elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 117
+                self.state = 125
                 self.dataOperand()
                 pass
-            elif token in [19]:
+
+            elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 118
-                self.match(tis100Parser.Identifier)
+
                 pass
-            elif token in [18]:
+
+            elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 119
+                self.state = 127
+                self.nilOperand()
+                pass
+
+            elif la_ == 7:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 128
                 self.match(tis100Parser.Constant)
                 pass
-            else:
-                raise NoViableAltException(self)
+
 
         except RecognitionException as re:
             localctx.exception = re
@@ -1153,47 +1232,10 @@ class tis100Parser ( Parser ):
     def accumulatorOperand(self):
 
         localctx = tis100Parser.AccumulatorOperandContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 36, self.RULE_accumulatorOperand)
+        self.enterRule(localctx, 38, self.RULE_accumulatorOperand)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 122
-            self.match(tis100Parser.T__13)
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
-    class UpOperandContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-
-        def getRuleIndex(self):
-            return tis100Parser.RULE_upOperand
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitUpOperand" ):
-                return visitor.visitUpOperand(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-
-
-    def upOperand(self):
-
-        localctx = tis100Parser.UpOperandContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 38, self.RULE_upOperand)
-        try:
-            self.enterOuterAlt(localctx, 1)
-            self.state = 124
+            self.state = 131
             self.match(tis100Parser.T__14)
         except RecognitionException as re:
             localctx.exception = re
@@ -1204,7 +1246,7 @@ class tis100Parser ( Parser ):
         return localctx
 
 
-    class DownOperandContext(ParserRuleContext):
+    class InOperandContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -1213,25 +1255,62 @@ class tis100Parser ( Parser ):
 
 
         def getRuleIndex(self):
-            return tis100Parser.RULE_downOperand
+            return tis100Parser.RULE_inOperand
 
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitDownOperand" ):
-                return visitor.visitDownOperand(self)
+            if hasattr( visitor, "visitInOperand" ):
+                return visitor.visitInOperand(self)
             else:
                 return visitor.visitChildren(self)
 
 
 
 
-    def downOperand(self):
+    def inOperand(self):
 
-        localctx = tis100Parser.DownOperandContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 40, self.RULE_downOperand)
+        localctx = tis100Parser.InOperandContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 40, self.RULE_inOperand)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 126
+            self.state = 133
             self.match(tis100Parser.T__15)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class OutOperandContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return tis100Parser.RULE_outOperand
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOutOperand" ):
+                return visitor.visitOutOperand(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def outOperand(self):
+
+        localctx = tis100Parser.OutOperandContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 42, self.RULE_outOperand)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 135
+            self.match(tis100Parser.T__16)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1264,11 +1343,48 @@ class tis100Parser ( Parser ):
     def dataOperand(self):
 
         localctx = tis100Parser.DataOperandContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 42, self.RULE_dataOperand)
+        self.enterRule(localctx, 44, self.RULE_dataOperand)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 128
-            self.match(tis100Parser.T__16)
+            self.state = 137
+            self.match(tis100Parser.T__17)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class NilOperandContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return tis100Parser.RULE_nilOperand
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitNilOperand" ):
+                return visitor.visitNilOperand(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def nilOperand(self):
+
+        localctx = tis100Parser.NilOperandContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 46, self.RULE_nilOperand)
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 139
+            self.match(tis100Parser.T__18)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

@@ -69,6 +69,11 @@ class tis100Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by tis100Parser#notEqualsCondition.
+    def visitNotEqualsCondition(self, ctx:tis100Parser.NotEqualsConditionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by tis100Parser#memoryInstruction.
     def visitMemoryInstruction(self, ctx:tis100Parser.MemoryInstructionContext):
         return self.visitChildren(ctx)
@@ -104,18 +109,23 @@ class tis100Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tis100Parser#upOperand.
-    def visitUpOperand(self, ctx:tis100Parser.UpOperandContext):
+    # Visit a parse tree produced by tis100Parser#inOperand.
+    def visitInOperand(self, ctx:tis100Parser.InOperandContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by tis100Parser#downOperand.
-    def visitDownOperand(self, ctx:tis100Parser.DownOperandContext):
+    # Visit a parse tree produced by tis100Parser#outOperand.
+    def visitOutOperand(self, ctx:tis100Parser.OutOperandContext):
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by tis100Parser#dataOperand.
     def visitDataOperand(self, ctx:tis100Parser.DataOperandContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by tis100Parser#nilOperand.
+    def visitNilOperand(self, ctx:tis100Parser.NilOperandContext):
         return self.visitChildren(ctx)
 
 
