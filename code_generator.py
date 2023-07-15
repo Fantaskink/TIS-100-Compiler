@@ -215,4 +215,4 @@ class CodeGenerator(tis100Visitor):
             self.append_instruction(neg_instruction)
             return register
 
-        return parsed_constant
+        return "#" + str(parsed_constant)
