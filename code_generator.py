@@ -207,6 +207,7 @@ class CodeGenerator(tis100Visitor):
         if len(str(parsed_constant)) > 3:
             parsed_constant = 999
 
+        # If the constant is negative, load it into a register and negate it, then return the register
         if is_negative:
             register = self.registers["TEMP"]
             load_instruction = get_load_register_instruction(parsed_constant, register)
