@@ -83,7 +83,7 @@ grammar tis100;
         ;
 
     operand
-        :   accumulatorOperand | inOperand | outOperand | dataOperand | Constant
+        :   accumulatorOperand | inOperand | outOperand | dataOperand | | nilOperand | Constant
         ;
 
     accumulatorOperand
@@ -100,6 +100,10 @@ grammar tis100;
 
     dataOperand
         :   'DAT'
+        ;
+
+    nilOperand
+        :   'NIL'
         ;
 
     Constant
