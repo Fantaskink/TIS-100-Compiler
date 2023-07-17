@@ -46,7 +46,7 @@ class CodeGenerator(tis100Visitor):
         self.visitProgram(ast)
 
         self.write_outro_boilerplate()
-        self.write_code_to_file("output/program.s")
+        self.write_code_to_file("output/output.s")
         return
 
     def append_instruction(self, instruction):
