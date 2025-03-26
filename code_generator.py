@@ -28,6 +28,7 @@ def get_negate_instruction(register):
 class CodeGenerator(tis100Visitor):
     def __init__(self):
         self.code_lines = []
+        self.instruction_count = 0
         self.registers = {'ACC': 'X20', 'NIL': 'X31', 'IN': 'X21', 'OUT': 'X22',
                           'DAT': 'X23', 'BAK': 'X24', 'TEMP': 'X25'}
 
@@ -80,6 +81,9 @@ class CodeGenerator(tis100Visitor):
         return
 
     def visitInstruction(self, ctx: tis100Parser.InstructionContext):
+        self.code_lines.append(f"OP{self.instruction_count}:")
+        self.instruction_count += 1
+        print(self.instruction_count)
         return ctx.getChild(0).accept(self)
 
     def visitAddInstruction(self, ctx: tis100Parser.AddInstructionContext):
